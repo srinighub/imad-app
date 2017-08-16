@@ -5,17 +5,36 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var articleOne = {
-        title: 'Srini | Article One',
-        heading: 'Article One',
-        date: 'Aug 13, 2017',
-        content: `
-           <p>content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here.
-           </p>
-           <p>content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here.
-           </p>
-           <p>content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here.
-           </p>`
+var articles = {
+        'article-one': {
+            title: 'Srini | Article One',
+            heading: 'Article One',
+            date: 'Aug 13, 2017',
+            content: `
+               <p>content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here.
+               </p>
+               <p>content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here.
+               </p>
+               <p>content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here.
+               </p>`
+        },
+        'article-two': {
+            title: 'Srini | Article Two',
+            heading: 'Article Two',
+            date: 'Aug 14, 2017',
+            content: `
+               <p>
+               content for Article Two goes here.
+               </p>`
+           },
+        'article-three': {
+            title: 'Srini | Article Three',
+            heading: 'Article Three',
+            date: 'Aug 15, 2017',
+            content: `
+               <p>content for Article Three goes here.
+               </p>`
+        }
         };
 function createArticleTemplate(data) {
     var title = data.title;
@@ -51,16 +70,9 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article-one', function (req, res) {
-  res.send(createArticleTemplate(articleOne));
-});
-
-app.get('/article-two', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
-});
-
-app.get('/article-three', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
+app.get('/:articleName', function (req, res) {
+    // input is articleName = article-one
+  res.send(createArticleTemplate(articles(articleName)));
 });
 
 app.get('/ui/style.css', function (req, res) {
