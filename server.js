@@ -72,7 +72,8 @@ app.get('/', function (req, res) {
 
 app.get('/:articleName', function (req, res) {
     // input is articleName = article-one
-  res.send(createArticleTemplate(articles(articleName)));
+    //articles[article-one] = content for article one
+  res.send(createArticleTemplate(articles[articleName]));
 });
 
 app.get('/ui/style.css', function (req, res) {
