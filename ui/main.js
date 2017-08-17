@@ -1,5 +1,6 @@
 console.log('Loaded!');
 //Change text on click
+/*
 var elem = document.getElementById('main-text');
 elem.innerHTML = 'New Value';
 var img = document.getElementById('madi');
@@ -12,4 +13,6 @@ var leftMargin = 0;
 	 leftMargin += 1;
 	 img.style.marginLeft = leftMargin + 'px';
  }
+*/
+	
 	
