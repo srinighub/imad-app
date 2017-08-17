@@ -87,9 +87,10 @@ app.get('/ui/main.js', function (req, res) {
 app.get('/ui/lion.jpg', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'lion.jpg'));
 });
+
 var counter = 0;
 app.get('/counter', function (req, res) {
-    ++counter;
+    counter = counter + 1;
     res.send(counter.toString());
 });
 
