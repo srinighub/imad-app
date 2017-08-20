@@ -25,17 +25,23 @@ button.onclick = function () {
 var nameInput = document.getElementById("name");
 var name = nameInput.value;
 var submit = document.getElementById("submit_btn");
-var list = '';
+
 submit.onclick = function (){
     //Make the Request to send the value of Inputbox
     var request = XMLHttpRequest();
+    
     request.onreadystatechange = function () {
         if (request.readyState == XMLHttpRequest.DONE) {
             //On Successful execution get the response and store it in a variable
             if (request.status ==200){
-                var counter = request.responseText;
-                var span = document.getElementById("count");
-                span.innerHTML = counter.toString();
+                var names = request.responseText;
+               var list = '';
+               //capture the list of names and show it on the page
+                for (var i=0; i<names.length; i++){
+                    list = list + '<li>'+ names[i] + '</li>';
+                }
+                var ul = document.getElementById("nameList");
+                ul.innerHTML = list;
             }
         }
     };
@@ -44,7 +50,7 @@ submit.onclick = function (){
     var url = "http://srinikrishnamoorthy.imad.hasura-app.io/submit-name/" + name;
     request.open("GET", url, true);
     request.send();
-    
+    //nameInput.value = '';
 
 
 };
