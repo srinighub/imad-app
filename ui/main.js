@@ -37,6 +37,7 @@ button.onclick = function () {
         var name = nameInput.value;
         list = list + '<li>'+ name + '</li>';
         var ul = document.getElementById("nameList");
+        name.value = '';
         ul.innerHTML = list;
     };
     
