@@ -74,7 +74,7 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/:articleName', function (req, res) {
+app.get('article/:articleName', function (req, res) {
     // input is articleName = article-one
     //articles[article-one] = content for article one
   res.send(createArticleTemplate(articles[req.params.articleName]));
