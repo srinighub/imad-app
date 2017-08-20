@@ -22,18 +22,21 @@ button.onclick = function () {
     
     //Submit Name
     var nameInput = document.getElementById("name");
-    var name = nameInput.value;
+    
     var submit = document.getElementById("submit_btn");
+    var list = '';
     submit.onclick = function (){
         //Make the Request to send the value of Inputbox
         
         
         //capture the list of names and show it on the page
         var names = ['name1','name2','name3','name4'];
-        var list = '';
+      
         for (var i=0; i<names.length; i++){
             list = list + '<li>'+ names[i] + '</li>';
         }
+        var name = nameInput.value;
+        list = list + '<li>'+ name + '</li>';
         var ul = document.getElementById("nameList");
         ul.innerHTML = list;
     };
