@@ -34,7 +34,7 @@ submit.onclick = function (){
             //On Successful execution get the response and store it in a variable
             if (request.status ==200){
                 var names = [];
-                names = JSON.parse(request.responseText, TRUE);
+                names = JSON.parse(request.responseText);
                 var list = '';
                 //capture the list of names and show it on the page
                 for (var i=0; i<names.length; i++){
