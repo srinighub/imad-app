@@ -13,12 +13,13 @@ button.onclick = function () {
                 span.innerHTML = counter.toString();
             }
         }
-    }
-    
+    };
     //Make the request 
     request.open("GET", "http://srinikrishnamoorthy.imad.hasura-app.io/counter", true);
     request.send();
- 
+};
+    //Capture Input Text
+    
     //Submit Name
     var nameInput = document.getElementById("name");
     var name = nameInput.value;
@@ -35,8 +36,7 @@ button.onclick = function () {
         }
         var ul = document.getElementById("nameList");
         ul.innerHTML = list;
-        
-    }
-    //Capture Input Text
+    };
     
-}
+    
+    
