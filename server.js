@@ -63,6 +63,15 @@ function createArticleTemplate(data) {
                     <div>
                          ${content}   
                     </div>
+                    <div class="footer">
+                        <hr/>
+                        <textarea id="articleComment" name="articleComment">Enter your comments here:</textarea>
+                        <input type="submit" value="Submit" id="submit_cmnt"></input>
+                        <hr/>
+                        <h3>Your Feedback</h3>
+                        <ul id="commentList"></ul>
+                    </div>
+                    
                 </div>
             </body>
         </html>
@@ -100,6 +109,16 @@ app.get('/submit-name', function (req, res) { //Send 'name' as query parameter i
     res.send(JSON.stringify(names));
 });
 
+//Article Comments
+var articlecomments = [[],[]];
+
+app.get('/submit-comment', function (req, res) { //Send 'articlename' and 'comment' as query parameter in the URL ?articlename=sdfsdf
+    var articlename = req.query.articlename;
+    var comment = req.query.comment;
+    articlecomments.push(name);
+    //JSON Javascript Object Notation
+    res.send(JSON.stringify(names));
+});
 
 // Do not change port, otherwise your app won't run on IMAD servers
 // Use 8080 only for local development if you already have apache running on 80
