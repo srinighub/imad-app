@@ -30,11 +30,10 @@ button.onclick = function () {
         
         
         //capture the list of names and show it on the page
-        var names = ['name1','name2','name3','name4'];
-      
+   /*     var names = ['name1','name2','name3','name4'];
         for (var i=0; i<names.length; i++){
             list = list + '<li>'+ names[i] + '</li>';
-        }
+        }*/
         var name = nameInput.value;
         list = list + '<li>'+ name + '</li>';
         var ul = document.getElementById("nameList");
