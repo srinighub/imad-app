@@ -69,8 +69,10 @@ function createArticleTemplate(data) {
                         <textarea id="articleComment" name="articleComment">Enter your comments here:</textarea>
                         <input type="submit" value="Submit" id="submit_cmnt"></input>
                         <hr/>
-                        <h3>Your Feedback</h3>
-                        <ul id="commentList"></ul>
+                        <h3>Comments</h3>
+                        <ul id="commentList">
+                        <li>my test comments</li>
+                        </ul>
                     </div>
                     
                 </div>
