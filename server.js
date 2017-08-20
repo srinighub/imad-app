@@ -65,6 +65,7 @@ function createArticleTemplate(data) {
                     </div>
                     <div class="footer">
                         <hr/>
+                        <h3>Provide your comments below:</h3><br>
                         <textarea id="articleComment" name="articleComment">Enter your comments here:</textarea>
                         <input type="submit" value="Submit" id="submit_cmnt"></input>
                         <hr/>
