@@ -1,4 +1,4 @@
-//Counter Code
+//API - Counter Code
 
 var button = document.getElementById("counter");
 button.onclick = function () {
@@ -19,7 +19,7 @@ button.onclick = function () {
     request.send();
 };
 
-//Capture Input Text
+//API - Capture Input Text
 
 //Submit Name
 var nameInput = document.getElementById("name");
