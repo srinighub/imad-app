@@ -93,8 +93,8 @@ app.get('/ui/lion.jpg', function (req, res) {
 });
 
 var names = [];
-app.get('/submit-name/:name', function (req, res) {
-    var name = req.params.name;
+app.get('/submit-name', function (req, res) { //Send 'name' as query parameter in the URL ?name=sdfsdf
+    var name = req.query.name;
     names.push(name);
     //JSON Javascript Object Notation
     res.send(JSON.stringify(names));
