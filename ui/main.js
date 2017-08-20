@@ -47,9 +47,8 @@ submit.onclick = function (){
     };
     
     //Make the request 
-    var url = "http://srinikrishnamoorthy.imad.hasura-app.io/submit-name/" + nameInput.value;
-    request.open("GET", url, true);
-    request.send();
+    request.open("GET", 'http://srinikrishnamoorthy.imad.hasura-app.io/submit-name?name=' + nameInput.value, true);
+    request.send(null);
     nameInput.value = '';
 
 };
