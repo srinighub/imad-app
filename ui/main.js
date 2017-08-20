@@ -19,5 +19,24 @@ button.onclick = function () {
     request.open("GET", "http://srinikrishnamoorthy.imad.hasura-app.io/counter", true);
     request.send();
  
+    //Submit Name
+    var nameInput = document.getElementById("name");
+    var name = nameInput.value;
+    var submit = document.getElementById("submit_btn");
+    submit.onClick = function (){
+        //Make the Request to send the value of Inputbox
+        
+        
+        //capture the list of names and show it on the page
+        var names = ['name1','name2','name3'];
+        var list = '';
+        for (var i=0; i <=names.length, i++){
+            list += '<li>'+ names[i] + '</il>';
+        }
+        var ul = document.getElementById("nameList");
+        ul.innerHTML = list;
+        
+    }
+    Capture Input Text
     
 }
