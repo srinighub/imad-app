@@ -37,6 +37,6 @@ button.onclick = function () {
         ul.innerHTML = list;
         
     }
-    Capture Input Text
+    //Capture Input Text
     
 }
