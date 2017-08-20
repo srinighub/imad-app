@@ -1,18 +1,14 @@
-console.log('Loaded!');
-//Change text on click
-/*
-var elem = document.getElementById('main-text');
-elem.innerHTML = 'New Value';
-var img = document.getElementById('madi');
-var leftMargin = 0;
+//Counter Code
+var counter = 0;
+var button = document.getElementById("counter");
+button.onclick = function () {
+    //Make a request to the counter endpoint
 
- img.onclick= function(){
-	var intvl = setInterval(moveRight,50);
- }
- function moveRight(){
-	 leftMargin += 1;
-	 img.style.marginLeft = leftMargin + 'px';
- }
-*/
-	
-	
+    
+    //Capture response and store it in a variable
+    
+    //Render it in the correct span
+    counter = counter + 1;
+    var span = document.getElementById("count");
+    span.innerHTML = counter.toString();
+}
