@@ -74,11 +74,11 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-//app.get('/:articleName', function (req, res) {
+app.get('/:articleName', function (req, res) {
     // input is articleName = article-one
     //articles[article-one] = content for article one
-//  res.send(createArticleTemplate(articles[req.params.articleName]));
-//});
+  res.send(createArticleTemplate(articles[req.params.articleName]));
+});
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
@@ -92,6 +92,13 @@ app.get('/ui/lion.jpg', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'lion.jpg'));
 });
 
+var names = [];
+app.get('/submit-name/:name', function (req, res) {
+    var name = req.params.name;
+    names.push(name);
+    //JSON Javascript Object Notation
+    res.send(JSON.stringify(names));
+});
 
 
 // Do not change port, otherwise your app won't run on IMAD servers
