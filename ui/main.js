@@ -1,14 +1,23 @@
 //Counter Code
-var counter = 0;
+
 var button = document.getElementById("counter");
 button.onclick = function () {
-    //Make a request to the counter endpoint
-
+    //Create a request to the counter endpoint
+    var request = XMLHttpRequest();
+    request.onreadystatechange = function () {
+        if (request.readyState == XMLHttpRequest.DONE) {
+            //On Successful execution get the response and store it in a variable
+            if (request.status ==200){
+                var counter = request.responseText;
+                var span = document.getElementById("count");
+                span.innerHTML = counter.toString();
+            }
+        }
+    }
     
-    //Capture response and store it in a variable
+    //Make the request 
+    request.open("GET", "http://srinikrishnamoorthy.imad.hasura-app.io/counter", true);
+    request.send();
+ 
     
-    //Render it in the correct span
-    counter = counter + 1;
-    var span = document.getElementById("count");
-    span.innerHTML = counter.toString();
 }
