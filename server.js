@@ -11,6 +11,7 @@ app.get('/counter', function (req, res) {
 });
 var articles = {
         'article-one': {
+            articlekey: 'article-one',
             title: 'Srini | Article One',
             heading: 'Article One',
             date: 'Aug 13, 2017',
@@ -20,31 +21,38 @@ var articles = {
                <p>content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here.
                </p>
                <p>content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here.
-               </p>`
+               </p>`,
+             comments: ''
         },
         'article-two': {
+            articlekey: 'article-two',
             title: 'Srini | Article Two',
             heading: 'Article Two',
             date: 'Aug 14, 2017',
             content: `
                <p>
                content for Article Two goes here.
-               </p>`
+               </p>`,
+            comments: ''
            },
         'article-three': {
+            articlekey: 'article-three',
             title: 'Srini | Article Three',
             heading: 'Article Three',
             date: 'Aug 15, 2017',
             content: `
                <p>content for Article Three goes here.
-               </p>`
+               </p>`,
+            comments: ''
         }
         };
 function createArticleTemplate(data) {
+    var articlekey = data.articlekey;
     var title = data.title;
     var date = data.date;
     var heading = data.heading;
     var content = data.content;
+    var comments = data.comments;
     var articleHtmlTemplate = `
         <html>
             <head>
@@ -66,12 +74,13 @@ function createArticleTemplate(data) {
                     <div class="footer">
                         <hr/>
                         <h3>Provide your comments below:</h3>
-                        <textarea id="articleComment" name="articleComment">Enter your comments here:</textarea>
+                        <textarea id="articleComment" name="articleComment"></textarea>
+                        <input type="hidden" value=${articlekey} id="articleName"></input>
                         <input type="submit" value="Submit" id="submit_cmnt"></input>
                         <hr/>
                         <h3>Comments</h3>
                         <ul id="commentList">
-                            <li>my test comments</li>
+                            ${comments}
                         </ul>
                     </div>
                     
@@ -114,14 +123,15 @@ app.get('/submit-name', function (req, res) { //Send 'name' as query parameter i
 });
 
 //Article Comments
-var articlecomments = [[],[]];
 
-app.get('/article/:articleName/submit-comment', function (req, res) { //Send 'articlename' and 'comment' as query parameter in the URL ?articlename=sdfsdf
-    var articlename = req.query.articlename;
-    var comment = req.query.comment;
-    articlecomments.push(name);
+app.get('/article/:articleName/submit-comment', function (req, res) { //Send 'articlename' and 'comment' as query parameter in the URL ?comment=sdfsdf
+    var articlename = req.params.articlename;
+    var comment = '<li>' + req.query.comment + '</li>';
+    var commentList = articles[articlename].comments + comment;
+   articles[articlename].comments = commentList;
     //JSON Javascript Object Notation
-    res.send(JSON.stringify(names));
+    res.send(commentList.tostring());
+
 });
 
 // Do not change port, otherwise your app won't run on IMAD servers
