@@ -71,7 +71,7 @@ function createArticleTemplate(data) {
                         <hr/>
                         <h3>Comments</h3>
                         <ul id="commentList">
-                        <li>my test comments</li>
+                            <li>my test comments</li>
                         </ul>
                     </div>
                     
@@ -115,7 +115,7 @@ app.get('/submit-name', function (req, res) { //Send 'name' as query parameter i
 //Article Comments
 var articlecomments = [[],[]];
 
-app.get('/submit-comment', function (req, res) { //Send 'articlename' and 'comment' as query parameter in the URL ?articlename=sdfsdf
+app.get('/article/:articleName/submit-comment', function (req, res) { //Send 'articlename' and 'comment' as query parameter in the URL ?articlename=sdfsdf
     var articlename = req.query.articlename;
     var comment = req.query.comment;
     articlecomments.push(name);
