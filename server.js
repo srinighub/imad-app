@@ -131,6 +131,9 @@ app.get('/articles/:articleName/submit-comment', function (req, res) { //Send 'a
     var comment = '<li>' + req.query.comment + '</li>';
     var articleObj = articles[articlename];
        var keys = [];
+       keys.push(articlename);
+       keys.push(comment);
+       
    for(var key in articleObj){
       keys.push(key);
    }
