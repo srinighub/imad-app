@@ -74,7 +74,8 @@ function createArticleTemplate(data) {
                     <div class="footer">
                         <hr/>
                         <h3>Provide your comments below:</h3>
-                        <textarea id="articleComment" name="articleComment"></textarea>
+                        <input type="text" id="name" placeholder="Enter your Name"/>
+                        <textarea rows="4" cols="100" id="articleComment" name="articleComment" placeholder="Enter your comment here"></textarea>
                         <input type="hidden" value="${articlekey}"" id="articleName"/>
                         <input type="submit" value="Submit" id="submit_cmnt"/>
                         <hr/>
@@ -128,7 +129,7 @@ app.get('/submit-name', function (req, res) { //Send 'name' as query parameter i
 
 app.get('/articles/:articleName/submit-comment', function (req, res) { //Send 'articlename' and 'comment' as query parameter in the URL ?comment=sdfsdf
     var articlename = req.params.articleName;
-    var comment = '<li>' + req.query.comment + '</li>';
+    var comment = '<li>' + req.query.name + '(' + Date().toString()  + ')' + '<br>' + req.query.comment + '</li>';
 
 /*    var articleObj = articles[articlename];
        var keys = [];
