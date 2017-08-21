@@ -77,7 +77,8 @@ submitComment.onclick = function (){
     };
     
     //Make the request 
-    request.open("GET", 'http://srinikrishnamoorthy.imad.hasura-app.io/articles/'+ articleName.value + '/submit-comment?comment=' + articleComment.value, true);
+    var url = 'http://srinikrishnamoorthy.imad.hasura-app.io/articles/'+ articleName.value + '/submit-comment?comment=' + articleComment.value;
+    request.open("GET", url, true);
     request.send(null);
     articleComment.value = '';
 
