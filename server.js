@@ -22,7 +22,7 @@ var articles = {
                </p>
                <p>content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here.
                </p>`,
-             comments: ''
+             comments: '<li>Test Comment for article one</li>'
         },
         'article-two': {
             articlekey: 'article-two',
@@ -33,7 +33,7 @@ var articles = {
                <p>
                content for Article Two goes here.
                </p>`,
-            comments: ''
+            comments: '<li>Test Comment for article two</li>'
            },
         'article-three': {
             articlekey: 'article-three',
@@ -43,7 +43,7 @@ var articles = {
             content: `
                <p>content for Article Three goes here.
                </p>`,
-            comments: ''
+            comments: '<li>Test Comment for article three</li>'
         }
         };
 function createArticleTemplate(data) {
