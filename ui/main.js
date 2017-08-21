@@ -52,3 +52,30 @@ submit.onclick = function (){
     nameInput.value = '';
 
 };
+
+//Submit Comment
+var submitComment = document.getElementById("submit_cmnt");
+
+submitComment.onclick = function (){
+    var articleName = document.getElementById("articleName");
+    var articleComment = document.getElementById("articleComment");
+    
+    //Make the Request to send the value of Inputbox
+    var request = XMLHttpRequest();
+    
+    request.onreadystatechange = function () {
+        if (request.readyState == XMLHttpRequest.DONE) {
+            //On Successful execution get the response and store it in a variable
+            if (request.status ==200){
+                var ul = document.getElementById("commentList");
+                ul.innerHTML = request.responseText;
+            }
+        }
+    };
+    
+    //Make the request 
+    request.open("GET", 'http://srinikrishnamoorthy.imad.hasura-app.io/articles/'+ articleName.value + '/submit-comment?comment=' + articleComment.value, true);
+    request.send(null);
+    nameInput.value = '';
+
+};
