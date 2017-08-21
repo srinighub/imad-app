@@ -126,7 +126,7 @@ app.get('/submit-name', function (req, res) { //Send 'name' as query parameter i
 
 //Article Comments
 
-app.get('/article/:articleName/submit-comment', function (req, res) { //Send 'articlename' and 'comment' as query parameter in the URL ?comment=sdfsdf
+app.get('/articles/:articleName/submit-comment', function (req, res) { //Send 'articlename' and 'comment' as query parameter in the URL ?comment=sdfsdf
     var articlename = req.params.articlename;
     var comment = '<li>' + req.query.comment + '</li>';
     var commentList = articles[articlename].comments + comment;
