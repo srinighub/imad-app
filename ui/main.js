@@ -61,7 +61,7 @@ var submitComment = document.getElementById("submit_cmnt");
 submitComment.onclick = function (){
     var articleName = document.getElementById("articleName");
     var articleComment = document.getElementById("articleComment");
-    var readerName = document.getElementById("name");
+    var readerName = document.getElementById("name").value;
     
     //Make the Request to send the value of Inputbox
     var request = XMLHttpRequest();
