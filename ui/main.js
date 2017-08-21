@@ -1,4 +1,4 @@
-//Submit Comment
+//Submit Comment 
 var submitComment = document.getElementById("submit_cmnt");
 if (submitComment){
 	submitComment.onclick = function (){
