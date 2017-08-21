@@ -75,8 +75,8 @@ function createArticleTemplate(data) {
                         <hr/>
                         <h3>Provide your comments below:</h3>
                         <textarea id="articleComment" name="articleComment"></textarea>
-                        <input type="hidden" value=${articlekey} id="articleName"></input>
-                        <input type="submit" value="Submit" id="submit_cmnt"></input>
+                        <input type="hidden" value="${articlekey}"" id="articleName"/>
+                        <input type="submit" value="Submit" id="submit_cmnt"/>
                         <hr/>
                         <h3>Comments</h3>
                         <ul id="commentList">
