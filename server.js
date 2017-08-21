@@ -143,7 +143,7 @@ app.get('/articles/:articleName/submit-comment', function (req, res) { //Send 'a
    
     var commentList = articles[articlename].comments + comment;
     articles[articlename].comments = commentList;
-    res.send(commentList.tostring());
+    res.send(commentList.toString());
     //res.send(commentList);
 
 });
