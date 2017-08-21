@@ -1,6 +1,7 @@
 //API - Counter Code
 window.onload=function()
 {
+/*
 var button = document.getElementById("counter");
 button.onclick = function () {
     //Create a request to the counter endpoint
@@ -53,7 +54,7 @@ submit.onclick = function (){
     nameInput.value = '';
 
 };
-
+*/
 //Submit Comment
 var submitComment = document.getElementById("submit_cmnt");
 
