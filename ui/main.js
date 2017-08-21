@@ -79,7 +79,7 @@ submitComment.onclick = function (){
     //Make the request 
     request.open("GET", 'http://srinikrishnamoorthy.imad.hasura-app.io/articles/'+ articleName.value + '/submit-comment?comment=' + articleComment.value, true);
     request.send(null);
-    nameInput.value = '';
+    articleComment.value = '';
 
 };
 }
