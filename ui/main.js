@@ -61,6 +61,7 @@ var submitComment = document.getElementById("submit_cmnt");
 submitComment.onclick = function (){
     var articleName = document.getElementById("articleName");
     var articleComment = document.getElementById("articleComment");
+    var readerName = document.getElementById("name");
     
     //Make the Request to send the value of Inputbox
     var request = XMLHttpRequest();
@@ -76,7 +77,7 @@ submitComment.onclick = function (){
     };
     
     //Make the request 
-    var url = 'http://srinikrishnamoorthy.imad.hasura-app.io/articles/'+ articleName.value + '/submit-comment?comment=' + articleComment.value;
+    var url = 'http://srinikrishnamoorthy.imad.hasura-app.io/articles/'+ articleName.value + '/submit-comment?name=' + readerName + '&comment=' + articleComment.value;
     request.open("GET", url, true);
     request.send(null);
     articleComment.value = '';
