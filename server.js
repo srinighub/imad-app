@@ -22,7 +22,7 @@ var articles = {
                </p>
                <p>content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here.
                </p>`,
-             comments: '<li>Test Comment for article one</li>'
+             comments: ''
         },
         'article-two': {
             articlekey: 'article-two',
@@ -33,7 +33,7 @@ var articles = {
                <p>
                content for Article Two goes here.
                </p>`,
-            comments: '<li>Test Comment for article two</li>'
+            comments: ''
            },
         'article-three': {
             articlekey: 'article-three',
@@ -43,7 +43,7 @@ var articles = {
             content: `
                <p>content for Article Three goes here.
                </p>`,
-            comments: '<li>Test Comment for article three</li>'
+            comments: ''
         }
         };
 function createArticleTemplate(data) {
@@ -135,9 +135,9 @@ app.get('/articles/:articleName/submit-comment', function (req, res) { //Send 'a
        var keys = [];
        keys.push(articlename);
        keys.push(comment);
-   for(var key in articleObj){
-      keys.push(key);
-   }
+       for(var key in articleObj){
+          keys.push(key);
+       }
       //JSON Javascript Object Notation
     res.send(JSON.stringify(keys));
 */
@@ -145,7 +145,6 @@ app.get('/articles/:articleName/submit-comment', function (req, res) { //Send 'a
     var commentList = articles[articlename].comments + comment;
     articles[articlename].comments = commentList;
     res.send(commentList.toString());
-    //res.send(commentList);
 
 });
 
