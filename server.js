@@ -129,20 +129,21 @@ app.get('/submit-name', function (req, res) { //Send 'name' as query parameter i
 app.get('/articles/:articleName/submit-comment', function (req, res) { //Send 'articlename' and 'comment' as query parameter in the URL ?comment=sdfsdf
     var articlename = req.params.articleName;
     var comment = '<li>' + req.query.comment + '</li>';
-    var articleObj = articles[articlename];
+
+/*    var articleObj = articles[articlename];
        var keys = [];
        keys.push(articlename);
        keys.push(comment);
-       
    for(var key in articleObj){
       keys.push(key);
    }
-   
-    //var commentList = articleObj.articlekey + comment;
-   //articles[articlename].comments = commentList;
-    //JSON Javascript Object Notation
+      //JSON Javascript Object Notation
     res.send(JSON.stringify(keys));
-    //res.send(commentList.tostring());
+*/
+   
+    var commentList = articles[articlename].comments + comment;
+    articles[articlename].comments = commentList;
+    res.send(commentList.tostring());
     //res.send(commentList);
 
 });
