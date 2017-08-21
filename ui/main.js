@@ -78,6 +78,7 @@ submitComment.onclick = function (){
     
     //Make the request 
     var url = 'http://srinikrishnamoorthy.imad.hasura-app.io/articles/'+ articleName.value + '/submit-comment?name=' + readerName + '&comment=' + (articleComment.value).replace(/\n/g, '<br>');
+    request.open("GET", url, true);
     request.send(null);
     articleComment.value = '';
 
