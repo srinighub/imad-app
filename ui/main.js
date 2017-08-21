@@ -57,6 +57,7 @@ submit.onclick = function (){
 var submitComment = document.getElementById("submit_cmnt");
 
 submitComment.onclick = function (){
+    alert('Submit Clicked');
     var articleName = document.getElementById("articleName");
     var articleComment = document.getElementById("articleComment");
     
