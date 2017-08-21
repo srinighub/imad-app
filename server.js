@@ -76,7 +76,7 @@ function createArticleTemplate(data) {
                         <h3>Provide your comments below:</h3>
                         <input type="text" id="name" placeholder="Enter your Name"/>
                         <textarea rows="4" cols="100" id="articleComment" name="articleComment" placeholder="Enter your comment here"></textarea>
-                        <input type="hidden" value="${articlekey}"" id="articleName"/>
+                        <input type="hidden" value="${articlekey}" id="articleName"/>
                         <input type="submit" value="Submit" id="submit_cmnt"/>
                         <hr/>
                         <h3>Comments</h3>
