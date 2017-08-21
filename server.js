@@ -104,6 +104,7 @@ app.get('/ui/lion.jpg', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'lion.jpg'));
 });
 
+//GET 'Name', add to the list and push the list back as JSON
 var names = [];
 app.get('/submit-name', function (req, res) { //Send 'name' as query parameter in the URL ?name=sdfsdf
     var name = req.query.name;
