@@ -130,9 +130,10 @@ app.get('/articles/:articleName/submit-comment', function (req, res) { //Send 'a
     var articlename = req.params.articlename;
     var comment = '<li>' + req.query.comment + '</li>';
     var commentList = articles[articlename].comments + comment;
-   articles[articlename].comments = commentList;
+   //articles[articlename].comments = commentList;
     //JSON Javascript Object Notation
-    res.send(commentList.tostring());
+    //res.send(commentList.tostring());
+    res.send(commentList);
 
 });
 
