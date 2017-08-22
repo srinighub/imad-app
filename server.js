@@ -123,7 +123,7 @@ app.get('/articles/:articleName', function (req, res) {
     // input is articleName = article-one
     //articles[article-one] = content for article one
     var articleName = req.params.articleName;
-    pool.query("SELECT id, title, heading, date, content from article where title = '" + req.params.articleName + "'", function(err,result){
+    pool.query("SELECT id, title, heading, date, content from article where title = $1", [req.params.articleName], function(err,result){
         if (err){
             res.status(500).send(err.toString());
         } else {
