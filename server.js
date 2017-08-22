@@ -13,48 +13,8 @@ var config = {
 
 var app = express();
 app.use(morgan('combined'));
-var counter = 0;
-app.get('/counter', function (req, res) {
-    counter = counter + 1;
-    res.send(counter.toString());
-});
-var articles = {
-        'article-one': {
-            articlekey: 'article-one',
-            title: 'Srini | Article One',
-            heading: 'Article One',
-            date: 'Aug 13, 2017',
-            content: `
-               <p>content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here.
-               </p>
-               <p>content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here.
-               </p>
-               <p>content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here. content for Article one goes here.
-               </p>`,
-             comments: ''
-        },
-        'article-two': {
-            articlekey: 'article-two',
-            title: 'Srini | Article Two',
-            heading: 'Article Two',
-            date: 'Aug 14, 2017',
-            content: `
-               <p>
-               content for Article Two goes here.
-               </p>`,
-            comments: ''
-           },
-        'article-three': {
-            articlekey: 'article-three',
-            title: 'Srini | Article Three',
-            heading: 'Article Three',
-            date: 'Aug 15, 2017',
-            content: `
-               <p>content for Article Three goes here.
-               </p>`,
-            comments: ''
-        }
-        };
+var pool = new Pool(config);
+
 function createArticleTemplate(data) {
     var articlekey = data.articlekey;
     var title = data.title;
@@ -107,7 +67,12 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-var pool = new Pool(config);
+var counter = 0;
+app.get('/counter', function (req, res) {
+    counter = counter + 1;
+    res.send(counter.toString());
+});
+
 app.get('/test-db', function (req, res) {
   pool.query('select * from article', function(err,result){
       if (err){
