@@ -26,7 +26,6 @@ if (submit){
 		request.open("POST", window.location.origin + '/login', true);
 		request.setRequestHeader('Content-Type','application/json');
 		request.send(JSON.stringify({username: username, password: password}));
-		nameInput.value = '';
 
 	};
 };
