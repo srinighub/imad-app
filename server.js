@@ -75,8 +75,8 @@ app.get('/counter', function (req, res) {
     res.send(counter.toString());
 });
 
-function hash (input, saltStr){
-    var hashed = crypto.pbkdf2Sync('secret', saltStr, 10000, 512, 'sha512');
+function hash (inputStr, saltStr){
+    var hashed = crypto.pbkdf2Sync(inputStr, saltStr, 10000, 512, 'sha512');
     return hashed.toString('hex');
 }
 
