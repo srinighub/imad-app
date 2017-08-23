@@ -80,8 +80,9 @@ function hash (inputStr, saltStr){
     return hashed.toString('hex');
 }
 
-app.get ('/hash/:input', function (req,res) {
-    var hashedString = hash('testpass', 'this-is-some-random-string');
+app.get ('/hash/:inputPass', function (req,res) {
+    var inputPass = req.params.inputPass;
+    var hashedString = hash(inputPass, 'this-is-some-random-string');
     res.send(hashedString);
 });
 
