@@ -1,3 +1,36 @@
+
+//User Login
+//Submit username and password to login
+var submit = document.getElementById("submit_btn");
+if (submit){
+	submit.onclick = function (){
+		//Make the Request to send the value of Inputbox
+		var request = new XMLHttpRequest();
+		
+		request.onreadystatechange = function () {
+			if (request.readyState == XMLHttpRequest.DONE) {
+				//On Successful execution get the response and store it in a variable
+				if (request.status ==200){
+				    alert('User Logged in Successfully');
+				} else if (request.status === 403){
+				    alert('invalid username/password');
+				} else if (request.status === 500){
+				    alert('Something went wrong on the server');
+				}
+			}
+		};
+		
+		//Make the request 
+    	var username = document.getElementById("username").value;
+    	var password = document.getElementById("password").value;
+		request.open("POST", window.location.origin + '/login', true);
+		request.setRequestHeader('Content-Type','application/json');
+		request.send(JSON.stringify({username: username, password: password}));
+		nameInput.value = '';
+
+	};
+};
+
 //Submit Comment 
 var submitComment = document.getElementById("submit_cmnt");
 if (submitComment){
@@ -51,6 +84,7 @@ if (button){
 };
 
 //API - Capture Input Text
+/* commented the unwanted features
 
 //Submit Name
 var submit = document.getElementById("submit_btn");
@@ -84,6 +118,6 @@ if (submit){
 
 	};
 };
-
+*/
 
 
