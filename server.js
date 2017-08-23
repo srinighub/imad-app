@@ -75,14 +75,14 @@ app.get('/counter', function (req, res) {
     res.send(counter.toString());
 });
 
-function hash(input,salt){
+function hash (input, salt){
     var hashed = crypto.pbkdf2Sync(input, salt, 10000, 512, 'sha512');
     return hashed.toString(hex);
 }
 
 app.get ('/hash/:input', function (req,res){
-    var hashString = hash(req.param.input, 'this-is-a-random-salt-string');
-    res.send(hashString);
+    var hashedString = hash(req.param.input, 'this-is-some-random-string');
+    res.send(hashedString);
 });
 
 app.get('/test-db', function (req, res) {
