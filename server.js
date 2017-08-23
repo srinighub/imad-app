@@ -104,6 +104,32 @@ app.post('/create-user', function (req, res) {
   } );
 });
 
+app.post('/login', function (req, res) {
+    // username, password come in the body via JSON
+    // {"username":"user1", "password":"pwdentered"}
+    var username = req.body.username;
+    var password = req.body.password;
+    
+    pool.query('SELECT * FROM "User" WHERE username = $1)', [username], function(err,result){
+      if (err){
+          res.status(500).send(err.toString());
+      } else {
+          if (result.rows.length === 0){
+              res.status(403).send('Invalid username or password');
+          } else {
+              //Hash password
+              var dbString = result.rows[0].password;
+              var salt = dbstring.split('$')[2];
+              var hashedPassword = hash(password,salt); //creating a hash based on user typed password
+              if (hashedPassword === dbString){
+                  res.send('Valid Credentials!');
+              } else {
+                  res.status(403).send('Invalid username or password');
+              }
+          }
+      }
+  } );
+});
 app.get('/test-db', function (req, res) {
   pool.query('select * from article', function(err,result){
       if (err){
