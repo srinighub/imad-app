@@ -114,7 +114,7 @@ app.post('/login', function (req, res) {
     var username = req.body.username;
     var password = req.body.password;
     
-    pool.query('SELECT username,password FROM "User" WHERE username = $1', [username], function(err,result){
+    pool.query('SELECT id,username,password FROM "User" WHERE username = $1', [username], function(err,result){
       if (err){
           res.status(500).send(err.toString());
       } else {
@@ -131,8 +131,8 @@ app.post('/login', function (req, res) {
                   //This function sets the cookie on the client side
                   //internally, on the serverside it maps the session id to an object
                   // auth: {userid}
-                  res.send('Valid Credentials!');
-                 // res.send('Valid Credentials!' + (req.session.auth.userId).toString());
+                  //res.send('Valid Credentials!');
+                 res.send('Valid Credentials!' + (req.session.auth.userId).toString());
               } else {
                   res.status(403).send('Invalid username or password');
               }
